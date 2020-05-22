@@ -1,8 +1,7 @@
 FROM debian:testing
 
-ARG HYDRA_VERSION=v9.0
-
 RUN apt-get update && \
-    apt-get install -y hydra
+    apt-get install --no-install-recommends -y hydra && \
+    rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["hydra"]
